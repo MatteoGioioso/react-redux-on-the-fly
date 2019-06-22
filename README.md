@@ -4,6 +4,12 @@
 
 [![NPM](https://img.shields.io/npm/v/react-redux-on-the-fly.svg)](https://www.npmjs.com/package/react-redux-on-the-fly) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+- Lazy load reducers
+- Create reducer with almost zero boiler plate
+- Enforce actions and types naming schema
+
+### Library under construction >D
+
 ## Install
 
 ```bash
@@ -28,4 +34,4 @@ class Example extends Component {
 
 ## License
 
-MIT © [Matteo Gioioso](https://github.com/Matteo Gioioso)
+MIT © [Matteo Gioioso](https://github.com/MatteoGioioso)
