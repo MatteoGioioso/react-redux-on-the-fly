@@ -1,0 +1,8 @@
+{
+  "short_name": "react-redux-on-the-fly",
+  "name": "react-redux-on-the-fly",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
