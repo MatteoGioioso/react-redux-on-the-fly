@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-export function createReducer(asyncReducers) {
+export function asyncCombineReducers(asyncReducers) {
   return combineReducers({
     ...asyncReducers
   });
