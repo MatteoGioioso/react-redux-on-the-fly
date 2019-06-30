@@ -10,7 +10,7 @@ const MAX_ASYNC_REDUCERS_STACK = 30;
  * @returns {*}
  */
 function searchProperty(props, name) {
-  return props[name] || props.match.params[name];
+  return props[name] || (props.match && props.match.params[name]);
 }
 
 /**
