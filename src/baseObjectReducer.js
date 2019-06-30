@@ -1,10 +1,18 @@
-export const baseObjectReducer = (section, reducer) => (state = {}, action) => {
-  switch (action.type) {
-    case `RECEIVE_${section}`:
-      return action.payload;
-    case `RESET_${section}`:
-      return {};
-    default:
-      return reducer ? reducer(state, action) : state;
+export class BaseObjectReducerMethods {
+  receiveOne = (state, payload) => payload;
+}
+
+export const baseObjectReducer = (
+  section,
+  initialState = {},
+  Overrides = BaseObjectReducerMethods,
+  reducer
+) => (state = {}, action) => {
+  const methods = new Overrides();
+
+  if (action.type === `RECEIVE_${section}`) {
+    return methods.receiveOne(state, action.payload);
+  } else {
+    return reducer ? reducer(state, action) : state;
   }
 };

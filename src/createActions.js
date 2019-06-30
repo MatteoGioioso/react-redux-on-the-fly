@@ -18,8 +18,10 @@ export const createActions = (
     RECEIVE_MANY: `RECEIVE_${section}S`,
     RECEIVE_MANY_ON_TOP: `RECEIVE_${section}S_ON_TOP`,
     RECEIVE_ONE: `RECEIVE_${section}`,
+    RECEIVE_ONE_ON_TOP: `RECEIVE_${section}_ON_TOP`,
     SUBSTITUTE_ONE: `SUBSTITUTE_${section}`,
-    REMOVE_ONE: `REMOVE_${section}`,
+    DESTROY_ONE: `DESTROY_${section}`,
+    DESTROY_MANY: `DESTROY_${section}S`,
     RESET: `RESET_${section}S`,
     ...options.types
   },
@@ -58,23 +60,31 @@ export const createActions = (
         name,
         payload: data
       }),
-      [`substitute${this._normalizeName()}`]: (data, name) => ({
-        type: this.types.SUBSTITUTE_ONE,
-        name,
-        payload: data
-      }),
-      [`remove${this._normalizeName()}`]: (id, name) => ({
-        type: this.types.REMOVE_ONE,
-        name,
-        payload: id
-      }),
-
       [`receive${this._normalizeName()}`]: (data, name) => ({
         type: this.types.RECEIVE_ONE,
         name,
         payload: data
       }),
-
+      [`receive${this._normalizeName()}OnTop`]: (data, name) => ({
+        type: this.types.RECEIVE_ONE_ON_TOP,
+        name,
+        payload: data
+      }),
+      [`substitute${this._normalizeName()}`]: (data, name) => ({
+        type: this.types.SUBSTITUTE_ONE,
+        name,
+        payload: data
+      }),
+      [`destroy${this._normalizeName()}`]: (data, name) => ({
+        type: this.types.DESTROY_MANY,
+        name,
+        payload: data
+      }),
+      [`destroy${this._normalizeName()}s`]: (data, name) => ({
+        type: this.types.DESTROY_MANY,
+        name,
+        payload: data
+      }),
       [`reset${this._normalizeName()}s`]: name => ({
         type: this.types.RESET,
         name
