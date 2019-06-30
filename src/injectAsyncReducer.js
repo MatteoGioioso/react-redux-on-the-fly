@@ -1,10 +1,11 @@
-import { ReactReduxContext } from "react-redux";
+import { connect } from "react-redux";
 import React from "react";
 import {
   asyncReducerManager,
   getReducerName,
   injectAsyncReducer
 } from "./helpers";
+import { ReactReduxOnTheFlyContext } from "./ReactReduxOnTheFlyContext";
 
 /**
  * withAsyncReducer
@@ -24,14 +25,14 @@ export const withAsyncReducer = (
     const reducer = anonymousReducer(reducerName);
 
     return (
-      <ReactReduxContext.Consumer>
+      <ReactReduxOnTheFlyContext.Consumer>
         {({ store }) => {
           injectAsyncReducer(store, reducerName, reducer);
           asyncReducerManager(store, props);
 
           return <WrappedComponent {...props} reducerName={reducerName} />;
         }}
-      </ReactReduxContext.Consumer>
+      </ReactReduxOnTheFlyContext.Consumer>
     );
   };
 };
