@@ -1,13 +1,36 @@
-import React, { Component } from 'react'
+/* eslint-disable react/prop-types */
+import React, { Component } from "react";
 
-import ExampleComponent from 'react-redux-on-the-fly'
+import {
+  withAsyncReducer,
+  createActions,
+  createNamedWrapperReducer,
+  baseArrayReducer
+} from "react-redux-on-the-fly";
+import { connect } from "react-redux";
 
-export default class App extends Component {
-  render () {
+const section = "CUSTOMER";
+const actions = createActions(section);
+const reducer = createNamedWrapperReducer(baseArrayReducer(section));
+
+class App extends Component {
+  render() {
     return (
       <div>
-        <ExampleComponent text='Modern React component module' />
+        Hello world my async reducer is {JSON.stringify(this.props.customers)}
+        <button onClick={() => this.props.findCustomers()}>Click me</button>
       </div>
-    )
+    );
   }
 }
+
+const mapStateToProps = (state, props) => ({
+  customers: state[props.reducerName]
+});
+
+export default withAsyncReducer("customer", "id", reducer)(
+  connect(
+    mapStateToProps,
+    actions.actions
+  )(App)
+);
