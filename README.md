@@ -2,7 +2,9 @@
 
 > Reducers lazy loading for React
 
-[![NPM](https://img.shields.io/npm/v/react-redux-on-the-fly.svg)](https://www.npmjs.com/package/react-redux-on-the-fly) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-redux-on-the-fly.svg)](https://www.npmjs.com/package/react-redux-on-the-fly) 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Build Status](https://travis-ci.com/MatteoGioioso/react-redux-on-the-fly.svg?branch=master)](https://travis-ci.com/MatteoGioioso/react-redux-on-the-fly)
 
 - Lazy load reducers
 - Create reducer with almost zero boiler plate
@@ -31,6 +33,15 @@ class Example extends Component {
   }
 }
 ```
+
+## Overrides
+- ### Reducer methods
+
+- ### Initial state
+
+- ### Add more reducer methods
+
+---
 
 ## License
 
