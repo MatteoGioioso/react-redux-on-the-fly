@@ -1,17 +1,30 @@
-/**
- * Helpers
- */
-
 import { asyncCombineReducers } from "./asyncCombineReducers";
 
 const MAX_ASYNC_REDUCERS_STACK = 30;
 
+/**
+ * searchProperty
+ * it search through props object or to params object
+ * @param props
+ * @param {string} name
+ * @returns {*}
+ */
 function searchProperty(props, name) {
   return props[name] || props.match.params[name];
 }
 
+/**
+ * getNamesFromIdentifierName
+ * This method convert identifierName in array
+ * @param {string | array<string>} identifierName
+ * @return {array}
+ */
 function getNamesFromIdentifierName(identifierName) {
-  return identifierName.split(".");
+  if (Array.isArray(identifierName)) {
+    return identifierName;
+  }
+
+  return [identifierName];
 }
 
 function mapIdentifierNamesToProp(identifierNames, props) {
