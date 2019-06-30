@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseArrayReducerMethods class should destroy multiple elements in array 1`] = `
+Array [
+  Object {
+    "content": "stuff_1",
+    "id": "1",
+  },
+  Object {
+    "content": "stuff_2",
+    "id": "2",
+  },
+  Object {
+    "content": "stuff_5",
+    "id": "5",
+  },
+  Object {
+    "content": "stuff_7",
+    "id": "7",
+  },
+  Object {
+    "content": "stuff_8",
+    "id": "8",
+  },
+  Object {
+    "content": "stuff_9",
+    "id": "9",
+  },
+  Object {
+    "content": "stuff_10",
+    "id": "10",
+  },
+]
+`;
+
+exports[`BaseArrayReducerMethods class should destroy multiple elements in array if one id does not math 1`] = `
+Array [
+  Object {
+    "content": "stuff_1",
+    "id": "1",
+  },
+  Object {
+    "content": "stuff_2",
+    "id": "2",
+  },
+  Object {
+    "content": "stuff_5",
+    "id": "5",
+  },
+  Object {
+    "content": "stuff_6",
+    "id": "6",
+  },
+  Object {
+    "content": "stuff_7",
+    "id": "7",
+  },
+  Object {
+    "content": "stuff_8",
+    "id": "8",
+  },
+  Object {
+    "content": "stuff_9",
+    "id": "9",
+  },
+  Object {
+    "content": "stuff_10",
+    "id": "10",
+  },
+]
+`;
+
+exports[`BaseArrayReducerMethods class should not substitute a item in array, id does not match 1`] = `
+Array [
+  Object {
+    "content": "stuff_1",
+    "id": "1",
+  },
+  Object {
+    "content": "stuff_2",
+    "id": "2",
+  },
+  Object {
+    "content": "stuff_3",
+    "id": "3",
+  },
+  Object {
+    "content": "stuff_4",
+    "id": "4",
+  },
+  Object {
+    "content": "stuff_5",
+    "id": "5",
+  },
+  Object {
+    "content": "stuff_6",
+    "id": "6",
+  },
+  Object {
+    "content": "stuff_7",
+    "id": "7",
+  },
+  Object {
+    "content": "stuff_8",
+    "id": "8",
+  },
+  Object {
+    "content": "stuff_9",
+    "id": "9",
+  },
+  Object {
+    "content": "stuff_10",
+    "id": "10",
+  },
+]
+`;
+
+exports[`BaseArrayReducerMethods class should substitute one item in array 1`] = `
+Array [
+  Object {
+    "content": "stuff_1",
+    "id": "1",
+  },
+  Object {
+    "content": "stuff_2",
+    "id": "2",
+  },
+  Object {
+    "content": "stuff_3",
+    "id": "3",
+  },
+  Object {
+    "content": "stuff_4",
+    "id": "4",
+  },
+  Object {
+    "content": "stuff_5_updated",
+    "id": "5",
+  },
+  Object {
+    "content": "stuff_6",
+    "id": "6",
+  },
+  Object {
+    "content": "stuff_7",
+    "id": "7",
+  },
+  Object {
+    "content": "stuff_8",
+    "id": "8",
+  },
+  Object {
+    "content": "stuff_9",
+    "id": "9",
+  },
+  Object {
+    "content": "stuff_10",
+    "id": "10",
+  },
+]
+`;
