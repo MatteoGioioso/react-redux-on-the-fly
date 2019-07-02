@@ -1,17 +1,24 @@
-import { withAsyncReducer } from "./injectAsyncReducer";
+import {
+  withAsyncReducer,
+  withAsyncReducerConnect
+} from "./injectAsyncReducer";
 import { createActions } from "./createActions";
-import { createNamedWrapperReducer } from "./helpers";
+import { createNamedWrapperReducer, createDuck } from "./helpers";
 import { baseArrayReducer } from "./baseArrayReducer";
 import { baseObjectReducer } from "./baseObjectReducer";
-import { asyncCombineReducers } from "./asyncCombineReducers";
 import { ReactReduxOnTheFlyProvider } from "./ReactReduxOnTheFlyContext";
+import ReactReduxOnTheFly from "./ReactReduxOnTheFly";
+import createRoot from "./createRoot";
 
 export {
   ReactReduxOnTheFlyProvider,
-  asyncCombineReducers,
+  ReactReduxOnTheFly,
   withAsyncReducer,
+  withAsyncReducerConnect,
   createActions,
   createNamedWrapperReducer,
   baseArrayReducer,
-  baseObjectReducer
+  baseObjectReducer,
+  createDuck,
+  createRoot
 };
