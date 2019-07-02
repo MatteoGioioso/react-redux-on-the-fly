@@ -1,25 +1,25 @@
-import { asyncCombineReducers } from "./asyncCombineReducers";
-
-const MAX_ASYNC_REDUCERS_STACK = 30;
+import { baseArrayReducer } from "./baseArrayReducer";
+import { createActions } from "./createActions";
+import { baseObjectReducer } from "./baseObjectReducer";
 
 /**
- * searchProperty
+ * _searchProperty
  * it search through props object or to params object
  * @param props
  * @param {string} name
  * @returns {*}
  */
-function searchProperty(props, name) {
+export function searchProperty(props, name) {
   return props[name] || (props.match && props.match.params[name]);
 }
 
 /**
- * getNamesFromIdentifierName
+ * _getNamesFromIdentifierName
  * This method convert identifierName in array
  * @param {string | array<string>} identifierName
  * @return {array}
  */
-function getNamesFromIdentifierName(identifierName) {
+export function getNamesFromIdentifierName(identifierName) {
   if (Array.isArray(identifierName)) {
     return identifierName;
   }
@@ -27,7 +27,7 @@ function getNamesFromIdentifierName(identifierName) {
   return [identifierName];
 }
 
-function mapIdentifierNamesToProp(identifierNames, props) {
+export function mapIdentifierNamesToProp(identifierNames, props) {
   return identifierNames.map(name => searchProperty(props, name));
 }
 
@@ -42,24 +42,6 @@ export function getReducerName(props, identifierName, namespace) {
   return namespace;
 }
 
-export function asyncReducerManager(store) {
-  const asyncReducersStack = Object.keys(store.asyncReducers);
-
-  if (asyncReducersStack.length > MAX_ASYNC_REDUCERS_STACK) {
-    ejectAsyncReducer(store, asyncReducersStack[0]);
-  }
-}
-
-export function injectAsyncReducer(store, name, asyncReducer) {
-  store.asyncReducers[name] = asyncReducer;
-  store.replaceReducer(asyncCombineReducers(store.asyncReducers));
-}
-
-function ejectAsyncReducer(store, name) {
-  delete store.asyncReducers[name];
-  store.replaceReducer(asyncCombineReducers(store.asyncReducers));
-}
-
 // This function check the reducer name from the action and instantiate a reducer
 export function createNamedWrapperReducer(reducerFunction) {
   return reducerName => (state, action) => {
@@ -68,5 +50,23 @@ export function createNamedWrapperReducer(reducerFunction) {
     if (name !== reducerName && !isInitializationCall) return state;
 
     return reducerFunction(state, action);
+  };
+}
+
+/**
+ * createAnonymousDuck
+ * @param {string} section
+ * @param {string} type
+ */
+export function createDuck(name, section, type) {
+  const reducerType = {
+    array: baseArrayReducer,
+    object: baseObjectReducer
+  };
+  const reducer = reducerType[type](section);
+
+  return {
+    reducer: createNamedWrapperReducer(reducer)(name),
+    ...createActions(section)
   };
 }
