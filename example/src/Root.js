@@ -4,20 +4,26 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import {
-  asyncCombineReducers,
-  ReactReduxOnTheFlyProvider
+  ReactReduxOnTheFly,
+  ReactReduxOnTheFlyProvider,
+  baseArrayReducer,
 } from "react-redux-on-the-fly";
 
-const reducers = (state, action) => {
-  return asyncCombineReducers()(state, action);
-};
+const staticReducers = {
+  myStaticReducer: baseArrayReducer("STATIC_REDUCER")
+}
+const reactReduxOnTheFly = new ReactReduxOnTheFly(staticReducers);
+const reducers = reactReduxOnTheFly.asyncCombineReducers();
 
 export default props => {
   const store = createStore(reducers, applyMiddleware(logger));
   store.asyncReducers = {};
   return (
     <Provider store={store}>
-      <ReactReduxOnTheFlyProvider store={store}>
+      <ReactReduxOnTheFlyProvider
+        store={store}
+        reactReduxOnTheFly={reactReduxOnTheFly}
+      >
         {props.children}
       </ReactReduxOnTheFlyProvider>
     </Provider>
