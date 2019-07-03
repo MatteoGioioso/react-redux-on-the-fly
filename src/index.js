@@ -1,7 +1,4 @@
-import {
-  withAsyncReducer,
-  withAsyncReducerConnect
-} from "./injectAsyncReducer";
+import { withAsyncReducer } from "./injectAsyncReducer";
 import { createActions } from "./createActions";
 import { createNamedWrapperReducer, createDuck } from "./helpers";
 import { baseArrayReducer } from "./baseArrayReducer";
@@ -14,7 +11,6 @@ export {
   ReactReduxOnTheFlyProvider,
   ReactReduxOnTheFly,
   withAsyncReducer,
-  withAsyncReducerConnect,
   createActions,
   createNamedWrapperReducer,
   baseArrayReducer,
