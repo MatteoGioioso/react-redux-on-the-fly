@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import ReactReduxOnTheFly from "./ReactReduxOnTheFly";
 import { ReactReduxOnTheFlyProvider } from "./ReactReduxOnTheFlyContext";
@@ -11,17 +10,17 @@ import { ReactReduxOnTheFlyProvider } from "./ReactReduxOnTheFlyContext";
  * @param {array} middleware
  * @param {*} initialState
  */
-const createRoot = (staticReducers, middleware, initialState) => {
+const createRoot = (Provider, staticReducers, middleware, initialState) => {
   const reactReduxOnTheFly = new ReactReduxOnTheFly(staticReducers);
   const reducers = reactReduxOnTheFly.asyncCombineReducers();
+  const store = createStore(
+    reducers,
+    initialState,
+    applyMiddleware(...middleware)
+  );
+  store.asyncReducers = {};
 
   return props => {
-    const store = createStore(
-      reducers,
-      initialState,
-      applyMiddleware(...middleware)
-    );
-    store.asyncReducers = {};
     return (
       <Provider store={store}>
         <ReactReduxOnTheFlyProvider
