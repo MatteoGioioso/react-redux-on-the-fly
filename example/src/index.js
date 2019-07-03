@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import { Provider } from "react-redux";
 import "./index.css";
 import AppLowLevel from "./AppLowLevel";
 import Root from "./Root";
@@ -16,18 +16,17 @@ const myStaticDuck = createDuck("myStaticDuck", "STATIC_DUCK", "object");
 const staticReducers = {
   myStaticReducer: myStaticDuck.reducer
 };
-const HighLevelRoot = createRoot({}, [logger], {});
+const HighLevelRoot = createRoot(Provider, staticReducers, [logger]);
 
-console.log(HighLevelRoot);
 
 ReactDOM.render(
   <div>
     <Root>
       <AppLowLevel id="123" />
     </Root>
-    {/* <HighLevelRoot>
+    <HighLevelRoot>
       <AppHighLevel id="123" />
-    </HighLevelRoot> */}
+    </HighLevelRoot>
   </div>,
   document.getElementById("root")
 );
