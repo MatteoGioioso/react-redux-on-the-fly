@@ -5,7 +5,7 @@ import { baseObjectReducer } from "./baseObjectReducer";
 /**
  * _searchProperty
  * it search through props object or to params object
- * @param props
+ * @param {object} props
  * @param {string} name
  * @returns {*}
  */
@@ -16,24 +16,32 @@ export function searchProperty(props, name) {
 /**
  * _getNamesFromIdentifierName
  * This method convert identifierName in array
- * @param {string | array<string>} identifierName
+ * @param {string | string[]} identifierName
  * @return {array}
  */
-export function getNamesFromIdentifierName(identifierName) {
-  if (Array.isArray(identifierName)) {
-    return identifierName;
-  }
+export const getArrayFromIdentifierNames = identifierName =>
+  Array.isArray(identifierName) ? identifierName : [identifierName];
 
-  return [identifierName];
-}
-
+/**
+ * mapIdentifierNamesToProp
+ * @param {string[]} identifierNames
+ * @param {object} props
+ * @return {string[]}
+ */
 export function mapIdentifierNamesToProp(identifierNames, props) {
   return identifierNames.map(name => searchProperty(props, name));
 }
 
+/**
+ * getReducerName
+ * @param {object} props
+ * @param {string[] | string} identifierName
+ * @param {string} namespace
+ * @return {string}
+ */
 export function getReducerName(props, identifierName, namespace) {
   if (identifierName) {
-    const identifiersArray = getNamesFromIdentifierName(identifierName);
+    const identifiersArray = getArrayFromIdentifierNames(identifierName);
     const mappedProps = mapIdentifierNamesToProp(identifiersArray, props);
 
     return `${namespace}/${mappedProps.join("/")}`;
