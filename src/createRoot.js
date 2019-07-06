@@ -6,6 +6,7 @@ import { ReactReduxOnTheFlyProvider } from "./ReactReduxOnTheFlyContext";
 
 /**
  * createRoot
+ * @param Provider - React-redux provider
  * @param {object} staticReducers
  * @param {array} middleware
  * @param {*} initialState
