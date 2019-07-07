@@ -63,6 +63,7 @@ export function createNamedWrapperReducer(reducerFunction) {
 
 /**
  * createAnonymousDuck
+ * @param {string} name
  * @param {string} section
  * @param {string} type
  */

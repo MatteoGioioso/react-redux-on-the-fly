@@ -7,7 +7,7 @@ import { ReactReduxOnTheFlyContext } from "./ReactReduxOnTheFlyContext";
  * withAsyncReducer
  * HOC to inject a reducer into the store dynamically
  * @param {string} namespace
- * @param {string | string[]} identifierName id or any other unique identifier
+ * @param {string | string[]} [identifierName] id or any other unique identifier
  * @param anonymousReducer a reducer without name, the name will be generated on component injection
  */
 export const withAsyncReducer = (
