@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 
 export default class ReactReduxOnTheFly {
-  constructor(staticReducers, options) {
+  constructor(staticReducers, options = {}) {
     this._staticReducers = staticReducers;
     this._options = options;
-    this.MAX_ASYNC_REDUCERS_STACK = 30;
+    this.MAX_ASYNC_REDUCERS_STACK = this._options.maxReducersNumber || 30;
   }
 
   asyncCombineReducers(asyncReducers) {
@@ -22,6 +22,12 @@ export default class ReactReduxOnTheFly {
     }
   }
 
+  /**
+   * injectAsyncReducer
+   * @param {object} store
+   * @param {string} name
+   * @param {function} asyncReducer
+   */
   injectAsyncReducer(store, name, asyncReducer) {
     store.asyncReducers[name] = asyncReducer;
     store.replaceReducer(this.asyncCombineReducers(store.asyncReducers));
