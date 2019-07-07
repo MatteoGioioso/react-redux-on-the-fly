@@ -48,4 +48,19 @@ describe("BaseArrayReducerMethods class", function() {
 
     expect(result).toMatchSnapshot();
   });
+
+  it("should update an empty array by index bigger than 0", function() {
+    const result = BaseArrayReducerMethods._update(2, "value", []);
+
+    expect(result).toEqual(["value"]);
+  });
+
+  it("should update an array by index bigger than the number of items included", function() {
+    const result = BaseArrayReducerMethods._update(99, "value_3", [
+      "value_1",
+      "value_2"
+    ]);
+
+    expect(result).toEqual(["value_1", "value_2", "value_3"]);
+  });
 });
