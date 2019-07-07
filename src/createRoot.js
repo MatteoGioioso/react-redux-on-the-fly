@@ -7,9 +7,9 @@ import { ReactReduxOnTheFlyProvider } from "./ReactReduxOnTheFlyContext";
 /**
  * createRoot
  * @param Provider - React-redux provider
- * @param {object} staticReducers
- * @param {array} middleware
- * @param {*} initialState
+ * @param {object} [staticReducers]
+ * @param {array} [middleware]
+ * @param {*} [initialState]
  */
 const createRoot = (Provider, staticReducers, middleware, initialState) => {
   const reactReduxOnTheFly = new ReactReduxOnTheFly(staticReducers);
@@ -17,7 +17,7 @@ const createRoot = (Provider, staticReducers, middleware, initialState) => {
   const store = createStore(
     reducers,
     initialState,
-    applyMiddleware(...middleware)
+    applyMiddleware(...(middleware || []))
   );
   store.asyncReducers = {};
 
