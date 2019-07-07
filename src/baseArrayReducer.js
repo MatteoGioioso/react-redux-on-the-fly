@@ -7,15 +7,21 @@ export class BaseArrayReducerMethods {
     return [...array.slice(0, index), value, ...array.slice(index + 1)];
   }
 
+  /**
+   * receiveMany
+   * @param {*[] | *} state
+   * @param {*[] | *} payload
+   * @return {*[] | *}
+   */
   receiveMany = (state, payload) => [...state, ...payload];
 
   receiveManyOnTop = (state, payload) => [...payload, ...state];
 
   /**
    * substituteOne
-   * @param {array} state
-   * @param {object} payload
-   * @returns {array}
+   * @param {*[] | *} state
+   * @param {object | *} payload
+   * @returns {*[]}
    */
   substituteOne = (state, payload) => {
     const indexOfPayload = state.findIndex(item => item.id === payload.id);
@@ -29,9 +35,9 @@ export class BaseArrayReducerMethods {
 
   /**
    * destroyMany
-   * @param {array} state
-   * @param {array} payload
-   * @returns {array}
+   * @param {*[] | *} state
+   * @param {string[]} payload
+   * @returns {*[] | *}
    */
   destroyMany = (state, payload) =>
     state.filter(item => !payload.some(id => id === item.id));
