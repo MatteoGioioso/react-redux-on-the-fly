@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`actionsCreator should add more types and actions 1`] = `
+Object {
+  "createCustomer": [Function],
+  "deleteCustomerById": [Function],
+  "destroyCustomer": [Function],
+  "destroyCustomers": [Function],
+  "findCustomerById": [Function],
+  "findCustomers": [Function],
+  "myCustomAction": [Function],
+  "receiveCustomer": [Function],
+  "receiveCustomerOnTop": [Function],
+  "receiveCustomers": [Function],
+  "receiveCustomersOnTop": [Function],
+  "resetCustomers": [Function],
+  "substituteCustomer": [Function],
+  "updateCustomerById": [Function],
+}
+`;
+
+exports[`actionsCreator should add more types and actions 2`] = `
+Object {
+  "CREATE": "CREATE_CUSTOMER",
+  "CUSTOM_TYPE": "CUSTOM_TYPE",
+  "DELETE_BY_ID": "DELETE_CUSTOMER_BY_ID",
+  "DESTROY_MANY": "DESTROY_CUSTOMERS",
+  "DESTROY_ONE": "DESTROY_CUSTOMER",
+  "FIND": "FIND_CUSTOMERS",
+  "FIND_BY_ID": "FIND_CUSTOMER_BY_ID",
+  "RECEIVE_MANY": "RECEIVE_CUSTOMERS",
+  "RECEIVE_MANY_ON_TOP": "RECEIVE_CUSTOMERS_ON_TOP",
+  "RECEIVE_ONE": "RECEIVE_CUSTOMER",
+  "RECEIVE_ONE_ON_TOP": "RECEIVE_CUSTOMER_ON_TOP",
+  "RESET": "RESET_CUSTOMERS",
+  "SUBSTITUTE_ONE": "SUBSTITUTE_CUSTOMER",
+  "UPDATE_BY_ID": "UPDATE_CUSTOMER_BY_ID",
+}
+`;
+
+exports[`actionsCreator should return types and actions correctly 1`] = `
+Object {
+  "createCustomer": [Function],
+  "deleteCustomerById": [Function],
+  "destroyCustomer": [Function],
+  "destroyCustomers": [Function],
+  "findCustomerById": [Function],
+  "findCustomers": [Function],
+  "receiveCustomer": [Function],
+  "receiveCustomerOnTop": [Function],
+  "receiveCustomers": [Function],
+  "receiveCustomersOnTop": [Function],
+  "resetCustomers": [Function],
+  "substituteCustomer": [Function],
+  "updateCustomerById": [Function],
+}
+`;
+
+exports[`actionsCreator should return types and actions correctly 2`] = `
+Object {
+  "CREATE": "CREATE_CUSTOMER",
+  "DELETE_BY_ID": "DELETE_CUSTOMER_BY_ID",
+  "DESTROY_MANY": "DESTROY_CUSTOMERS",
+  "DESTROY_ONE": "DESTROY_CUSTOMER",
+  "FIND": "FIND_CUSTOMERS",
+  "FIND_BY_ID": "FIND_CUSTOMER_BY_ID",
+  "RECEIVE_MANY": "RECEIVE_CUSTOMERS",
+  "RECEIVE_MANY_ON_TOP": "RECEIVE_CUSTOMERS_ON_TOP",
+  "RECEIVE_ONE": "RECEIVE_CUSTOMER",
+  "RECEIVE_ONE_ON_TOP": "RECEIVE_CUSTOMER_ON_TOP",
+  "RESET": "RESET_CUSTOMERS",
+  "SUBSTITUTE_ONE": "SUBSTITUTE_CUSTOMER",
+  "UPDATE_BY_ID": "UPDATE_CUSTOMER_BY_ID",
+}
+`;
