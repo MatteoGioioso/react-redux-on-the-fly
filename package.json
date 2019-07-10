@@ -1,6 +1,6 @@
 {
   "name": "react-redux-on-the-fly",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reducers lazy loading for React",
   "author": "Matteo Gioioso",
   "license": "MIT",
