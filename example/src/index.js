@@ -7,17 +7,13 @@ import Root from "./Root";
 import AppHighLevel from "./AppHighLevel";
 import logger from "redux-logger";
 
-import {
-  createRoot,
-  createDuck
-} from "react-redux-on-the-fly";
+import { createRoot, createDuck } from "react-redux-on-the-fly";
 
 const myStaticDuck = createDuck("myStaticDuck", "STATIC_DUCK", "object");
 const staticReducers = {
   myStaticReducer: myStaticDuck.reducer
 };
 const HighLevelRoot = createRoot(Provider, staticReducers, [logger]);
-
 
 ReactDOM.render(
   <div>
