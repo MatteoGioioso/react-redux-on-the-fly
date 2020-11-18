@@ -63,7 +63,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-url": "^1.4.0",
-    "semantic-release": "^15.13.18"
+    "semantic-release": "^17.2.3"
   },
   "files": [
     "dist"
